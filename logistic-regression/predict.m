@@ -1,4 +1,4 @@
-function computeTheta(filename, features, theta, alpha, epochs)
+function predictions = predict(filename, features, theta, alpha, epochs)
     X = readtable(filename);
     x = table2array(X(:, features));
     x = [ones(length(x),1) x];
@@ -8,6 +8,4 @@ function computeTheta(filename, features, theta, alpha, epochs)
     figure;
     plot(x(:, 2), y, 'bo', 'MarkerSize', 10);
     hold on;
-    plot(predictions, 'r', 'MarkerSize', 10);
-    figure
-    plot(1:length(error), error, 'b', 'MarkerSize', 10)
+    plot(x(:, 2), predictions, 'r', 'MarkerSize', 10);
